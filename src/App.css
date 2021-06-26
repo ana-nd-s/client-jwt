@@ -52,7 +52,9 @@ p {
   padding: 0 10px;
 }
 
-.input:focus, .input:focus-visible, .input:focus-within{
+.input:focus,
+.input:focus-visible,
+.input:focus-within {
   outline: none;
 }
 
@@ -69,6 +71,11 @@ p {
 
 .btn:disabled {
   opacity: 0.5;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
 }
 
 .appbar {

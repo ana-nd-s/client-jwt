@@ -1,11 +1,10 @@
 import React from "react";
-import {BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import './App.css';
+import "./App.css";
 
-
-const  App = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -15,6 +14,6 @@ const  App = () => {
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
