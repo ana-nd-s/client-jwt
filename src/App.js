@@ -31,9 +31,10 @@ const AuthChecker = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={"/login"} component={Login} />
+        {!isAuth && <Route path={"/login"} component={Login} />}
         {isAuth && <Route path={"/home"} component={Home} exact />}
         {!isAuth && <Redirect to="/login" />}
+        {isAuth && <Redirect to="/home" />}
       </Switch>
     </BrowserRouter>
   );

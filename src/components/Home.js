@@ -19,7 +19,7 @@ const Home = ({ history }) => {
     }
     fetch(logout, options).then(() => {
       setIsAuthorised(false)
-      history.push('/')
+      history.push('/login')
     }
     )
   };
