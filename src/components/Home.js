@@ -30,6 +30,10 @@ const Home = ({ history }) => {
         <p className="header-title">Home</p>
         <button className="header-button" onClick={handleLogout}>Logout</button>
       </div>
+      <div className="welcome">
+        <p className="welcome-title">You have successfully logged in Client site.</p>
+        <p className="welcome-title">WELCOME TO HACKATHON</p>
+      </div>
     </div>
   );
 }

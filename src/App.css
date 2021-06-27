@@ -103,3 +103,19 @@ p {
   border-radius: 8px;
   padding: 5px 20px;
 }
+
+
+.welcome{
+  height: calc(100vh - 75px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
