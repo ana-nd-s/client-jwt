@@ -1,24 +1,41 @@
 import React, { useState } from "react";
+import UrlConfig from "../config";
+import { useStoreActions } from "easy-peasy";
 
-const Login = ({ history }) => {
+const Login = ({ history, setIsAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const setIsAuthorised = useStoreActions(actions => actions.setIsAuthorised);
+
 
   const handleLogin = () => {
-    fetch(`https://fd86d4cca079.ngrok.io/user/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const login = `${UrlConfig.BASE_URL}/user/login`
+    const options = {
+      method: 'POST',
       body: JSON.stringify({
         email: email,
-        password: password,
+        password: password
       }),
-    })
-      .then((result) => {
-        console.log({result})
-        history.push("/home");
-      })
-      .catch((error) => {
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }
+    fetch(login, options)
+      .then(response => response.json())
+      .then((data) => {
+        if (data.error) {
+          setError(true)
+          alert(data.error)
+          return
+        }
+        setIsAuthorised(true)
+        history.push('/home')
+      }).catch((error) => {
         setError(true)
       });
   };
